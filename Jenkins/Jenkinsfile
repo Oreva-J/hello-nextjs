@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('clone repo') {
             steps {
-                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*${params.BRANCH_NAME}']], extensions: [], userRemoteConfigs: [[credentialsId: 'for-GitHub-Log-Dev', url: 'https://github.com/Oreva-J/hello-nextjs.git']])
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: "*${params.BRANCH_NAME}"]], extensions: [], userRemoteConfigs: [[credentialsId: 'for-GitHub-Log-Dev', url: 'https://github.com/Oreva-J/hello-nextjs.git']])
                 sh "echo 'Cloned branch ${params.BRANCH_NAME}'"
             }
         }
