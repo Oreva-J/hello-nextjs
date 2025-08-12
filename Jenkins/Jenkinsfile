@@ -26,6 +26,7 @@ pipeline {
         stage('test app') {
             steps {
                 sh 'npm run lint'
+                sh 'echo "Linting completed"'
             }
         }
     }
