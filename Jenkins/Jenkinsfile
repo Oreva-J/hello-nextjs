@@ -3,10 +3,13 @@ pipeline {
     tools {
         nodejs "node22"
     }
+    parameters{
+        string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Git branch to build from')
+    }
     stages {
         stage('clone repo') {
             steps {
-                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'for-GitHub-Log-Dev', url: 'https://github.com/Oreva-J/hello-nextjs.git']])
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*${params.BRANCH_NAME}']], extensions: [], userRemoteConfigs: [[credentialsId: 'for-GitHub-Log-Dev', url: 'https://github.com/Oreva-J/hello-nextjs.git']])
             }
         }
         stage('install dependencies') {
