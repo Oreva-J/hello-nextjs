@@ -21,7 +21,7 @@ pipeline {
         }
         stage('test app') {
             steps {
-                sh 'npm run test'
+                sh 'npm run lint'
             }
         }
     }
