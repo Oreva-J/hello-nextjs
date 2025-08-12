@@ -1,5 +1,4 @@
-{
-    pipeline{
+pipeline{
         agent any
         tools{
             nodejs "22.x"
@@ -27,4 +26,3 @@
             }
         }
     }
-}
